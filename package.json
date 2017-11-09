@@ -42,5 +42,9 @@
     "qcloud-cos-upload": "^1.0.0",
     "through2": "^2.0.3",
     "url-join": "^2.0.2"
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
   }
 }
