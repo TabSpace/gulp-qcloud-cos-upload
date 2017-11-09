@@ -21,9 +21,10 @@ npm i -D gulp-qcloud-cos-upload
 const gulp = require('gulp');
 const upload = require('gulp-qcloud-cos-upload');
 
-gulp.task('upload', function(){
-	gulp.src(['**/*'], {
-		//必要参数，匹配uploadTo，用于计算相对路径
+gulp.task(
+	'upload',
+	() => gulp.src(['**/*'], {
+		// 必要参数，匹配uploadTo，用于计算相对路径
 		cwd: './temp/files/'
 	}).pipe(upload({
 		// 是否开启调试模式，默认为 false，调试模式下，报错时输出详细错误信息
@@ -44,8 +45,8 @@ gulp.task('upload', function(){
 		Region: 'ap-chengdu',
 		// 前缀路径，所有文件上传到这个路径下
 		prefix: 'temp/gulp'
-	}));
-});
+	}))
+);
 ```
 
 ## Release History
