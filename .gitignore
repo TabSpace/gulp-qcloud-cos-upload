@@ -1,3 +1,7 @@
+# Project
+temp/
+ignore/
+
 # Logs
 logs
 *.log
