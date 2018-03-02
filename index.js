@@ -49,7 +49,6 @@ const upload = options => {
 		if (!hasAllRequestParam) { return callback(); }
 
 		if (file.isNull()) {
-			this.push(file);
 			return callback();
 		}
 
@@ -60,8 +59,6 @@ const upload = options => {
 			);
 			return callback();
 		}
-
-		this.push(file);
 
 		if (!isDir(file.path) && isFile(file.path)) {
 			let relativePath = $path.relative(file.cwd, file.path);

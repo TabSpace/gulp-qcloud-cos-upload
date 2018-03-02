@@ -57,13 +57,13 @@ describe('check-upload', function () {
 		});
 	});
 
-	it('File 1 should be exists', () => {
+	it('File 1 exists', () => {
 		console.log('check-upload noop1cosRs', noop1cosRs);
 		$chai.expect(noop1cosRs).to.be.a('string');
 		$chai.expect(noop1cosRs).to.not.include(timestamp);
 	});
 
-	it('File 2 should be exists', () => {
+	it('File 2 exists', () => {
 		console.log('check-upload noop2cosRs', noop2cosRs);
 		$chai.expect(noop2cosRs).to.be.a('string');
 		$chai.expect(noop2cosRs).to.not.include(timestamp);

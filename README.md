@@ -5,6 +5,10 @@
 
 适配腾讯云官方 COS Nodejs SDK（XML API） [cos-nodejs-sdk-v5](https://github.com/tencentyun/cos-nodejs-sdk-v5)
 
+## Demo
+
+![image](http://tabspace.github.io/demo/gulp-qcloud-cos-upload/demo.jpg)
+
 ## Getting Started
 
 安装:
@@ -51,6 +55,7 @@ gulp.task(
 
 ## Release History
 
+ * 2018-03-02 v1.0.1 解决 gulp.src 使用通配符有可能无法遍历所有文件的情况
  * 2017-11-09 v1.0.0 发布第一个正式版
 
 
