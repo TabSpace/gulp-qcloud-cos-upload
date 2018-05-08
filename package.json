@@ -12,10 +12,7 @@
     "url": "git+https://github.com/TabSpace/gulp-qcloud-cos-upload.git"
   },
   "files": [
-    "index.js",
-    "LICENSE",
-    "package.json",
-    "README.md"
+    "index.js"
   ],
   "keywords": [
     "qcloud",
