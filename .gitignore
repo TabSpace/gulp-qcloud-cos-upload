@@ -1,6 +1,7 @@
 # Project
 temp/
 ignore/
+package-lock.json
 
 # Logs
 logs
