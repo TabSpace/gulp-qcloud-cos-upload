@@ -1,0 +1,27 @@
+language: node_js
+
+services:
+  - docker
+
+node_js:
+  - 8
+
+branches:
+  only:
+    - master
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script: yarn test
+
+jobs:
+  include:
+    - stage: release
+      node_js: lts/*
+      script:
+        - yarn semantic-release
+
+
