@@ -73,7 +73,7 @@ const upload = options => {
 
 			$qcloudUpload(spec).then(rs => {
 				if (rs) {
-					if (rs.isExists) {
+					if (rs.isExists && !rs.uploaded) {
 						nSkip++;
 					} else {
 						nSuccess++;
