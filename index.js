@@ -35,21 +35,21 @@ const upload = options => {
 	let nFailed = 0;
 	let nSuccess = 0;
 
+	let hasAllRequestParam = Object.keys(requestParam).every(key => {
+		if (!conf[key]) {
+			this.emit(
+				'error',
+				new $gutil.PluginError(PLUGIN_NAME, `Need param: ${key}`)
+			);
+		}
+		return conf[key];
+	});
+
+	if (!hasAllRequestParam) { return; }
+
 	return $through.obj(function (file, encoding, callback) {
-		let hasAllRequestParam = Object.keys(requestParam).every(key => {
-			if (!conf[key]) {
-				this.emit(
-					'error',
-					new $gutil.PluginError(PLUGIN_NAME, `Need param: ${key}`)
-				);
-			}
-			return conf[key];
-		});
-
-		if (!hasAllRequestParam) { return callback(); }
-
 		if (file.isNull()) {
-			return callback();
+			callback();
 		}
 
 		if (file.isStream()) {
@@ -57,27 +57,24 @@ const upload = options => {
 				'error',
 				new $gutil.PluginError(PLUGIN_NAME, 'Streaming not supported')
 			);
-			return callback();
+			callback();
 		}
 
 		if (!isDir(file.path) && isFile(file.path)) {
+			console.log(file.path);
 			let relativePath = $path.relative(file.cwd, file.path);
 			let uploadPath = $path.join(conf.prefix, relativePath);
 			uploadPath = uploadPath.replace(/\\/g, '/');
 
 			nTotal++;
-			$qcloudUpload({
-				debug: conf.debug,
-				log: conf.log,
-				overwrite: conf.overwrite,
-				AppId: conf.AppId,
-				SecretId: conf.SecretId,
-				SecretKey: conf.SecretKey,
-				Bucket: conf.Bucket,
-				Region: conf.Region,
-				FilePath: file.path,
-				Key: uploadPath
-			}).then(rs => {
+
+			let spec = Object.assign({}, conf);
+			delete spec.prefix;
+			spec.FilePath = file.path;
+			spec.Key = uploadPath;
+
+			$qcloudUpload(spec).then(rs => {
+				console.log('qcloudUpload done');
 				if (rs) {
 					if (rs.isExists) {
 						nSkip++;
@@ -88,7 +85,9 @@ const upload = options => {
 					nFailed++;
 				}
 				callback();
-			}).catch(() => {
+			}).catch(err => {
+				console.log('qcloudUpload error');
+				console.error(err);
 				nFailed++;
 				callback();
 			});

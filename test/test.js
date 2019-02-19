@@ -1,7 +1,7 @@
 const $rp = require('request-promise');
 const $chai = require('chai');
 const $mocha = require('mocha');
-const $config = require('../temp/config');
+const $config = require('./config');
 
 const {
 	describe,
@@ -11,43 +11,21 @@ const {
 
 const timestamp = $config.timestamp || Date.now();
 const domain = `${$config.Bucket}-${$config.AppId}.coscd.myqcloud.com`;
-const perfix = 'temp/gulp';
+const perfix = $config.prefix;
 
-const noop1CosPath = `http://${domain}/${perfix}/noop1.js`;
-const noop2CosPath = `http://${domain}/${perfix}/noop2.js`;
-
-describe('config', () => {
-	it('config.AppId should be a string', () => {
-		$chai.expect($config.AppId).to.be.a('string');
-	});
-
-	it('config.SecretId should be a string', () => {
-		$chai.expect($config.SecretId).to.be.a('string');
-	});
-
-	it('config.SecretKey should be a string', () => {
-		$chai.expect($config.SecretKey).to.be.a('string');
-	});
-
-	it('config.Bucket should be a string', () => {
-		$chai.expect($config.Bucket).to.be.a('string');
-	});
-
-	it('config.Region should be a string', () => {
-		$chai.expect($config.Region).to.be.a('string');
-	});
-});
+const test1CosPath = `http://${domain}/${perfix}/test1.js`;
+const test2CosPath = `http://${domain}/${perfix}/test2.js`;
 
 describe('check-upload', function () {
-	this.timeout(5000);
+	this.timeout(20000);
 
 	let noop1cosRs = null;
 	let noop2cosRs = null;
 
 	before(done => {
-		$rp(noop1CosPath).then(rs => {
+		$rp(test1CosPath).then(rs => {
 			noop1cosRs = rs;
-			return $rp(noop2CosPath);
+			return $rp(test2CosPath);
 		}).then(rs => {
 			noop2cosRs = rs;
 			done();
