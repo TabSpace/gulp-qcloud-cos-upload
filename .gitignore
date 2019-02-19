@@ -1,7 +1,7 @@
 # Project
-temp/
 ignore/
 package-lock.json
+temp/test*.js
 
 # Logs
 logs
