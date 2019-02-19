@@ -318,26 +318,10 @@
     import-from "^2.1.0"
     lodash "^4.17.4"
 
-"@semantic-release/error@^2.1.0", "@semantic-release/error@^2.2.0":
+"@semantic-release/error@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.2.0.tgz#ee9d5a09c9969eade1ec864776aeda5c5cddbbf0"
   integrity sha512-9Tj/qn+y2j+sjCI3Jd+qseGtHjOAeg7dU2/lVcqIQ9TV3QDaDXDYXcoOHU+7o2Hwh8L8ymL4gfuO7KxDs3q2zg==
-
-"@semantic-release/git@^7.0.8":
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-7.0.8.tgz#b9e1af094a19d4e96974b90a969ad0e6782c8727"
-  integrity sha512-sA+XoPU6GrV+A4YswO0b5JWL1KbzmyyaqUK6Y2poDkIVPlj+oQdi/stpKz/bKF5z9ChMGP87OVPMeUyXGaNFtw==
-  dependencies:
-    "@semantic-release/error" "^2.1.0"
-    aggregate-error "^2.0.0"
-    debug "^4.0.0"
-    dir-glob "^2.0.0"
-    execa "^1.0.0"
-    fs-extra "^7.0.0"
-    globby "^9.0.0"
-    lodash "^4.17.4"
-    micromatch "^3.1.4"
-    p-reduce "^1.0.0"
 
 "@semantic-release/github@^5.1.0":
   version "5.2.10"
@@ -1483,14 +1467,14 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-cos-nodejs-sdk-v5@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/cos-nodejs-sdk-v5/-/cos-nodejs-sdk-v5-2.4.0.tgz#d410ade5a463ad0b703381aa09b3b8a437b6ce10"
-  integrity sha512-9oRLqx45W5HfU0etPaWpUt915LpAHzqGqecNFZEF/abHFcKBfukk73sbEhLkh74Bg6jjJUzvTqhKv2wzQBzRjQ==
+cos-nodejs-sdk-v5@2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/cos-nodejs-sdk-v5/-/cos-nodejs-sdk-v5-2.5.6.tgz#521811a82576b9c86875c1bf5a6049033c9bbdc3"
+  integrity sha512-GRW25IcJ1aNaDNcnV1o8RwAmPQrjjw6JspZ6OJ68mhQvYyyB+J/lU7MS+cH8//Y5UxprtmeOHrFUSCWsWp5pSw==
   dependencies:
     configstore "^3.1.2"
     request "^2.81.0"
-    xml2js "^0.4.17"
+    xml2js "^0.4.19"
 
 cosmiconfig@^4.0.0:
   version "4.0.0"
@@ -4546,7 +4530,7 @@ micromatch@^2.3.7:
     parse-glob "^3.0.4"
     regex-cache "^0.4.2"
 
-micromatch@^3.0.4, micromatch@^3.1.10, micromatch@^3.1.4, micromatch@^3.1.8:
+micromatch@^3.0.4, micromatch@^3.1.10, micromatch@^3.1.8:
   version "3.1.10"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"
   integrity sha512-MWikgl9n9M3w+bpsY3He8L+w9eF9338xRl8IAO5viDizwSzziFEyUzo2xrrloB64ADbTf8uA8vRqqttDTOmccg==
@@ -5795,13 +5779,13 @@ q@^1.5.1:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qcloud-cos-upload@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/qcloud-cos-upload/-/qcloud-cos-upload-1.1.4.tgz#7126d74e262316cb050df97f6f276cc0fc45902e"
-  integrity sha512-f2nJk8zqwTjCickHNbJ6BxiueeTsoTPhGn+y0A+vkEupxfPPtc/b/QmTseXDVrflXiCvOu/D/HuoYzSAk08Org==
+qcloud-cos-upload@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/qcloud-cos-upload/-/qcloud-cos-upload-1.2.8.tgz#f208550999ca727f7e510ef596a1415743573595"
+  integrity sha512-38Th2RNFZ/iBKvuaTNKo7VtgamR1tEhu+GUrbBN8lG/FGF0tOCZZ36Hl55duSEOxK/uXAGqeskF8Mxm75DGTgg==
   dependencies:
     chalk "2.3.0"
-    cos-nodejs-sdk-v5 "2.4.0"
+    cos-nodejs-sdk-v5 "2.5.6"
     url-join "2.0.2"
 
 qrcode-terminal@^0.12.0:
@@ -7430,7 +7414,7 @@ xdg-basedir@^3.0.0:
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
 
-xml2js@^0.4.17:
+xml2js@^0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.19.tgz#686c20f213209e94abf0d1bcf1efaa291c7827a7"
   integrity sha512-esZnJZJOiJR9wWKMyuvSE1y6Dq5LCuJanqhxslH2bxM6duahNZ+HMpCLhBQGZkbX6xRf8x1Y2eJlgt2q3qo49Q==

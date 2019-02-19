@@ -22,7 +22,7 @@ $gulp.task(
 		cwd: 'temp'
 	}).pipe($upload({
 		cdn: true,
-		debug: true,
+		debug: false,
 		overwrite: true,
 		AppId: $config.AppId,
 		SecretId: $config.SecretId,

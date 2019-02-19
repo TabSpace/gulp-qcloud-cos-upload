@@ -61,7 +61,6 @@ const upload = options => {
 		}
 
 		if (!isDir(file.path) && isFile(file.path)) {
-			console.log(file.path);
 			let relativePath = $path.relative(file.cwd, file.path);
 			let uploadPath = $path.join(conf.prefix, relativePath);
 			uploadPath = uploadPath.replace(/\\/g, '/');
@@ -69,12 +68,10 @@ const upload = options => {
 			nTotal++;
 
 			let spec = Object.assign({}, conf);
-			delete spec.prefix;
 			spec.FilePath = file.path;
 			spec.Key = uploadPath;
 
 			$qcloudUpload(spec).then(rs => {
-				console.log('qcloudUpload done');
 				if (rs) {
 					if (rs.isExists) {
 						nSkip++;
@@ -84,12 +81,11 @@ const upload = options => {
 				} else {
 					nFailed++;
 				}
-				callback();
+				setTimeout(callback);
 			}).catch(err => {
-				console.log('qcloudUpload error');
 				console.error(err);
 				nFailed++;
-				callback();
+				setTimeout(callback);
 			});
 		} else {
 			callback();

@@ -1,6 +1,6 @@
 {
   "name": "gulp-qcloud-cos-upload",
-  "version": "1.0.4",
+  "version": "0.0.0-development",
   "description": "上传静态资源到腾讯云的 Gulp 插件",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,6 @@
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
-    "@semantic-release/git": "^7.0.8",
     "babel-eslint": "8.0.2",
     "chai": "4.1.2",
     "commitizen": "^3.0.5",
@@ -56,7 +55,7 @@
   },
   "dependencies": {
     "gulp-util": "3.0.8",
-    "qcloud-cos-upload": "^1.1.4",
+    "qcloud-cos-upload": "^1.2.8",
     "through2": "2.0.3",
     "url-join": "2.0.2"
   },
@@ -76,23 +75,9 @@
       "git add"
     ]
   },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "dist/**/*.{js,css}",
-            "docs",
-            "*.md",
-            "package.json"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ]
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   },
   "config": {
