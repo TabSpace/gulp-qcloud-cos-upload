@@ -1,6 +1,6 @@
 {
   "name": "gulp-qcloud-cos-upload",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "上传静态资源到腾讯云的 Gulp 插件",
   "main": "index.js",
   "scripts": {
