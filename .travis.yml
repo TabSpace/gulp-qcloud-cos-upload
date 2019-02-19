@@ -6,22 +6,18 @@ services:
 node_js:
   - 8
 
-branches:
-  only:
-    - master
-
 cache:
   yarn: true
   directories:
     - node_modules
 
-script: yarn test
+branches:
+  only:
+    - master
 
 jobs:
   include:
+    - stage: test
+      script: npm run test
     - stage: release
-      node_js: lts/*
-      script:
-        - yarn semantic-release
-
-
+      script: npm run semantic-release
