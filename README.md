@@ -61,3 +61,11 @@ gulp.task(
   }))
 );
 ```
+
+本地文件 `./temp/files/test.js`
+
+将会被上传到
+
+`https://static-1000000000.file.myqcloud.com/temp/gulp/test.js`
+
+注意: gulp 的 base 参数将作为部署路径，连接到 prefix 的后面。
