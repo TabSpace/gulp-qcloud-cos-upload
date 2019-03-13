@@ -47,7 +47,7 @@ const upload = options => {
 
 	if (!hasAllRequestParam) { return; }
 
-	return $through.obj(function (file, encoding, callback) {
+	let stream = $through.obj(function (file, encoding, callback) {
 		if (file.isNull()) {
 			callback();
 		}
@@ -61,8 +61,15 @@ const upload = options => {
 		}
 
 		if (!isDir(file.path) && isFile(file.path)) {
+			let base = '';
+			if (file.base.indexOf($path.dirname(file.path)) === 0) {
+				base = '';
+			} else {
+				base = file.base;
+			}
+
 			let relativePath = $path.relative(file.cwd, file.path);
-			let uploadPath = $path.join(conf.prefix, relativePath);
+			let uploadPath = $path.join(conf.prefix, base, relativePath);
 			uploadPath = uploadPath.replace(/\\/g, '/');
 
 			nTotal++;
@@ -97,8 +104,10 @@ const upload = options => {
 			'Success:', $colors.green(nSuccess),
 			'Failed:', $colors.red(nFailed)
 		);
-		callback(null);
+		setTimeout(callback);
 	});
+
+	return stream;
 };
 
 module.exports = upload;
