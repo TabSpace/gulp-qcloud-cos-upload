@@ -1,10 +1,10 @@
 const $fs = require('fs');
 const $path = require('path');
-const $gutil = require('gulp-util');
 const $through = require('through2');
 const $qcloudUpload = require('qcloud-cos-upload');
-
-const $colors = $gutil.colors;
+const $chalk = require('chalk');
+const $log = require('fancy-log');
+const $PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-qcloud-cos-upload';
 
@@ -39,7 +39,7 @@ const upload = options => {
 		if (!conf[key]) {
 			this.emit(
 				'error',
-				new $gutil.PluginError(PLUGIN_NAME, `Need param: ${key}`)
+				new $PluginError(PLUGIN_NAME, `Need param: ${key}`)
 			);
 		}
 		return conf[key];
@@ -55,7 +55,7 @@ const upload = options => {
 		if (file.isStream()) {
 			this.emit(
 				'error',
-				new $gutil.PluginError(PLUGIN_NAME, 'Streaming not supported')
+				new $PluginError(PLUGIN_NAME, 'Streaming not supported')
 			);
 			callback();
 		}
@@ -98,11 +98,11 @@ const upload = options => {
 			callback();
 		}
 	}, callback => {
-		$gutil.log(
-			'Total:', $colors.green(nTotal),
-			'Skip:', $colors.gray(nSkip),
-			'Success:', $colors.green(nSuccess),
-			'Failed:', $colors.red(nFailed)
+		$log(
+			'Total:', $chalk.green(nTotal),
+			'Skip:', $chalk.gray(nSkip),
+			'Success:', $chalk.green(nSuccess),
+			'Failed:', $chalk.red(nFailed)
 		);
 		setTimeout(callback);
 	});
