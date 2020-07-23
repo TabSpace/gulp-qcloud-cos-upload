@@ -1,15 +1,8 @@
 const $fs = require('fs');
 const $path = require('path');
 const $rp = require('request-promise');
-const $chai = require('chai');
-const $mocha = require('mocha');
+const $assert = require('power-assert');
 const $config = require('./config');
-
-const {
-	describe,
-	it,
-	before
-} = $mocha;
 
 const domain = `${$config.Bucket}-${$config.AppId}.coscd.myqcloud.com`;
 const perfix = $config.prefix;
@@ -43,13 +36,13 @@ describe('check-upload', function () {
 	});
 
 	it('File 1 exists', () => {
-		$chai.expect(test1cosRs).to.be.a('string');
-		$chai.expect(test1cosRs).to.include(tsContent);
+		$assert(typeof test1cosRs === 'string');
+		$assert(test1cosRs.indexOf(tsContent) >= 0);
 	});
 
 	it('File 2 exists', () => {
-		$chai.expect(test2cosRs).to.be.a('string');
-		$chai.expect(test2cosRs).to.include(tsContent);
+		$assert(typeof test2cosRs === 'string');
+		$assert(test2cosRs.indexOf(tsContent) >= 0);
 	});
 });
 
@@ -71,7 +64,7 @@ describe('check-uploadBase', function () {
 	});
 
 	it('File 1 exists', () => {
-		$chai.expect(test1cosRs).to.be.a('string');
-		$chai.expect(test1cosRs).to.include(tsContent);
+		$assert(typeof test1cosRs === 'string');
+		$assert(test1cosRs.indexOf(tsContent) >= 0);
 	});
 });

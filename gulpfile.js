@@ -2,7 +2,6 @@ const $fs = require('fs');
 const $path = require('path');
 const $gulp = require('gulp');
 const $gulpMocha = require('gulp-mocha');
-const $runSequence = require('run-sequence');
 
 const $upload = require('./index');
 const $config = require('./test/config');
@@ -50,14 +49,13 @@ $gulp.task(
 		.pipe($gulpMocha())
 );
 
-$gulp.task('test', () => $runSequence(
+$gulp.task('test', $gulp.series(
 	'prepare',
 	'upload',
 	'upload-withBase',
 	'mocha'
 ));
 
-$gulp.task('default', [
+$gulp.task('default', $gulp.series(
 	'test'
-]);
-
+));

@@ -23,12 +23,14 @@ const requestParam = {
 const upload = options => {
 	options = options || {};
 
-	let conf = Object.assign({
+	let conf = {
 		prefix: '',
 		debug: false,
 		log: true,
-		overwrite: false
-	}, requestParam, options);
+		overwrite: false,
+		...requestParam,
+		...options
+	};
 
 	let nTotal = 0;
 	let nSkip = 0;
@@ -74,7 +76,7 @@ const upload = options => {
 
 			nTotal++;
 
-			let spec = Object.assign({}, conf);
+			let spec = { ...conf };
 			spec.FilePath = file.path;
 			spec.Key = uploadPath;
 
@@ -111,4 +113,3 @@ const upload = options => {
 };
 
 module.exports = upload;
-

@@ -8,6 +8,7 @@ module.exports = {
 		sourceType: 'module'
 	},
 	env: {
+		mocha: true,
 		es6: true,
 		browser: true,
 		node: true,
@@ -38,9 +39,9 @@ module.exports = {
 		'no-console': 0,
 		// 不在 else 中 return
 		'no-else-return': 0,
-        // 用什么来缩进，规定使用tab 来进行缩进，switch中case也需要一个tab .
-        'indent': [2, 'tab', { 'SwitchCase': 1 }],
-        // 对于回调类型函数，不必坚持 return
+		// 用什么来缩进，规定使用tab 来进行缩进，switch中case也需要一个tab .
+		'indent': [2, 'tab', { 'SwitchCase': 1 }],
+		// 对于回调类型函数，不必坚持 return
 		'consistent-return': 0,
 		// 不推荐解构赋值
 		'prefer-destructuring': 0,
