@@ -66,7 +66,7 @@ const upload = options => {
 
 		if (!isDir(file.path) && isFile(file.path)) {
 			let base = '';
-			if (file.base.indexOf($path.dirname(file.path)) === 0) {
+			if ($path.isAbsolute(file.base)) {
 				base = '';
 			} else {
 				base = file.base;
