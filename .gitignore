@@ -1,6 +1,7 @@
 # Project
 ignore/
 package-lock.json
+yarn.lock
 temp/test*.js
 
 # Logs
