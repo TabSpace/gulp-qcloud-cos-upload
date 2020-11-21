@@ -2,7 +2,9 @@
 ignore/
 package-lock.json
 yarn.lock
-temp/test*.js
+
+temp
+!temp/.gitkeep
 
 # Logs
 logs

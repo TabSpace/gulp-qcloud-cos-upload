@@ -13,6 +13,8 @@ $gulp.task('prepare', done => {
 	$fs.writeFileSync($path.resolve(__dirname, './temp/test.js'), content, 'utf8');
 	$fs.writeFileSync($path.resolve(__dirname, './temp/test1.js'), content, 'utf8');
 	$fs.writeFileSync($path.resolve(__dirname, './temp/test2.js'), content, 'utf8');
+	$fs.mkdirSync($path.resolve(__dirname, './temp/dir/sub'), { recursive: true });
+	$fs.writeFileSync($path.resolve(__dirname, './temp/dir/sub/testdir.js'), content, 'utf8');
 	done();
 });
 

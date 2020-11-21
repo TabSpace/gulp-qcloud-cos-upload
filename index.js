@@ -52,6 +52,7 @@ const upload = options => {
 	let stream = $through.obj(function (file, encoding, callback) {
 		if (file.isNull()) {
 			callback();
+			return;
 		}
 
 		if (file.isStream()) {
@@ -60,6 +61,7 @@ const upload = options => {
 				new $PluginError(PLUGIN_NAME, 'Streaming not supported')
 			);
 			callback();
+			return;
 		}
 
 		if (!isDir(file.path) && isFile(file.path)) {
