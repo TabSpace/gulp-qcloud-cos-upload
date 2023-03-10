@@ -6,7 +6,6 @@
   "scripts": {
     "test": "gulp test",
     "lint": "eslint --ext .js ./",
-    "cz": "git add . && git cz",
     "semantic-release": "semantic-release"
   },
   "repository": {
